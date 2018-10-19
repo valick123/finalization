@@ -1,0 +1,5 @@
+*log
+develop/node_modules/
+develop/package.json
+develop/package-lock.json
+develop/gulpfile.js
