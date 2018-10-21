@@ -1,10 +1,40 @@
-h1 {
-  color: yellow;
-  text-transform: uppercase;
+* {
+  box-sizing: border-box;
 }
-ul {
-  list-style: none;
-  padding: 0;
-  background-color: #000;
-  border: 1px solid red;
+html,
+body {
+  height: 100%;
+  & .site {
+    padding: 0;
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    & .main {
+      flex-grow: 1;
+    }
+  }
+}
+body {
+  font-family: "Asap Regular";
+}
+.img-full {
+  max-width: 100%;
+}
+h1 {
+  font-family: "Asap Bold";
+  font-size: 46px;
+  line-height: 49px;
+  text-transform: uppercase;
+  position: relative;
+  color: $primary_text_color;
+  &::before {
+    position: absolute;
+    content: "";
+    width: 60px;
+    height: 3px;
+    background-color: $secondary_text_color;
+    left: 0;
+    top: -20px;
+  }
 }

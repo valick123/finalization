@@ -1,5 +1,13 @@
 @import "config/responsive";
+@import "config/fonts";
+@import "config/varibles";
 @import "libs/grid";
 @import "libs/normalize";
+@import "components/btn";
 @import "sprites/sprite";
 @import "common";
+@import "layout/footer";
+@import "layout/header";
+@import "blocks/page-block";
+@import "blocks/info";
+@import "blocks/services";

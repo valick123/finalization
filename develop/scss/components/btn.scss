@@ -1,0 +1,17 @@
+.btn {
+  border: none;
+  text-transform: uppercase;
+  width: 160px;
+  height: 50px;
+  border: 1px solid $primary_text_color;
+  margin-right: 20px;
+  background: transparent;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:hover {
+    background: #fff;
+    border: none;
+    box-shadow: 5px 10px 50px -10px $secondary_text_color;
+  }
+}

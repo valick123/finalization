@@ -36,7 +36,7 @@ gulp.task("clean", function() {
 });
 gulp.task("public", function() {
   return gulp
-    .src("develop/**", { since: gulp.lastRun("public") })
+    .src("develop/**/*.*", { since: gulp.lastRun("public") })
 
     .pipe(gulp.dest("public"));
 });

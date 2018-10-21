@@ -1,0 +1,12 @@
+.info {
+  &__inner {
+    display: flex;
+    justify-content: center;
+    // flex-wrap: wrap;
+  }
+  @include tabletAndMobile {
+    &__inner {
+      flex-wrap: wrap;
+    }
+  }
+}
