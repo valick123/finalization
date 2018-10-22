@@ -46,10 +46,7 @@ gulp.task("server", function() {
   });
   browserSync.watch("public/**/*.*").on("change", browserSync.reload);
 });
-gulp.task(
-  "build",
-  gulp.series("clean", "sprite", gulp.parallel("scss", "public"))
-);
+gulp.task("build", gulp.series("clean", gulp.parallel("scss", "public")));
 gulp.task("watch", function() {
   gulp.watch("develop/scss/**/*.*", gulp.series("scss"));
   gulp.watch("develop/**/*.*", gulp.series("public"));

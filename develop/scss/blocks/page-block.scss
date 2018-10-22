@@ -2,23 +2,24 @@
   padding: 120px 0;
   display: flex;
   flex-wrap: wrap;
+  & h1 {
+    color: $secondary_text_color;
+    font-size: 46px;
+    line-height: 49px;
+    margin: 0;
+    position: relative;
+    margin-bottom: 60px;
+  }
+  & p {
+    font-family: "Myriad Pro";
+    color: $secondary_text_color;
+    font-size: 16px;
+    line-height: 26px;
+  }
   & .content {
     max-width: 100%;
     margin-right: 124px;
-    h1 {
-      color: $secondary_text_color;
-      font-family: "Myriad Pro";
-      font-size: 46px;
-      line-height: 49px;
-      margin: 0;
-      position: relative;
-    }
-    p {
-      font-family: "Myriad Pro";
-      color: $secondary_text_color;
-      font-size: 16px;
-      line-height: 26px;
-    }
+
     @include tabletAndMobile {
       margin-bottom: 20px;
       & h1 {
