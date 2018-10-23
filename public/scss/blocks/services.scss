@@ -22,4 +22,13 @@
       }
     }
   }
+  @include mobile {
+    &__inner {
+      & .serv_item {
+        & li {
+          width: 50%;
+        }
+      }
+    }
+  }
 }

@@ -1,0 +1,141 @@
+.footer {
+  padding-top: 145px;
+  background: url("../img/footer_bg.jpg");
+  &__inner {
+  }
+  &__top {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 60px;
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      & h1 {
+        color: $primary_color;
+        &::before {
+          background-color: $primary_color;
+          left: 38%;
+        }
+      }
+      & .form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        & input {
+          border: none;
+          height: 60px;
+          padding: 23px 10px;
+          margin-right: 30px;
+          flex-grow: 1;
+          margin-bottom: 30px;
+          &::placeholder {
+            font-family: "Asap Regular";
+            font-size: 16px;
+            letter-spacing: 0.067em;
+          }
+          &:last-of-type {
+            margin-right: 0;
+          }
+        }
+        & textarea {
+          border: none;
+          padding: 25px 10px;
+          width: 100%;
+          margin-bottom: 30px;
+          &::placeholder {
+            font-family: "Asap Regular";
+            font-size: 16px;
+            letter-spacing: 0.067em;
+          }
+        }
+      }
+    }
+  }
+  &__bottom {
+    padding: 30px 0;
+    &__inner {
+      display: flex;
+      & .social {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-right: 275px;
+        & li {
+          display: block;
+          width: 27px;
+          height: 27px;
+          margin-right: 10px;
+          background-color: #fff;
+          & a {
+            display: block;
+            height: 100%;
+          }
+          &:last-child {
+            margin: 0;
+          }
+        }
+        & .fb {
+          background: url("../../img/social-sprite.jpg") 0 0;
+        }
+        & .tw {
+          background: url("../../img/social-sprite.jpg") -36px 0;
+        }
+        & .in {
+          background: url("../../img/social-sprite.jpg") -72px 0;
+        }
+        & .gp {
+          background: url("../../img/social-sprite.jpg") -108px 0;
+        }
+        & .be {
+          background: url("../../img/social-sprite.jpg") -144px 0;
+        }
+        & .dr {
+          background: url("../../img/social-sprite.jpg") -180px 0;
+        }
+      }
+      & .copyright {
+        color: #fff;
+        font-family: "Montserrat Regular";
+        font-size: 16px;
+        letter-spacing: 0.06em;
+      }
+    }
+  }
+  @include desctop {
+    &__top {
+      padding-left: 300px;
+      padding-right: 300px;
+    }
+  }
+  @include tablet {
+    &__bottom {
+      &__inner {
+        & .social {
+          margin-right: 265px;
+        }
+      }
+    }
+  }
+  @include mobile {
+    &__top {
+      &__inner {
+        & .form {
+          & input {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+    &__bottom {
+      &__inner {
+        flex-direction: column;
+        align-items: center;
+        & .social {
+          margin-right: 0;
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}
