@@ -1,0 +1,33 @@
+.card {
+  &__inner {
+    padding: 10px 0;
+  }
+  &__header {
+  }
+  &__body {
+    display: flex;
+  }
+  &__footer {
+  }
+  &__info {
+    & p {
+      margin: 0;
+    }
+  }
+  &__avatar {
+    margin-right: 30px;
+  }
+
+  @include tabletAndMobile {
+    &__inner {
+      flex-wrap: wrap;
+    }
+    &__body {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    &__avatar {
+      margin: 0;
+    }
+  }
+}

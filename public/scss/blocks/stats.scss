@@ -1,0 +1,33 @@
+.stats {
+  &__inner {
+  }
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    & .item {
+      //   width: 25%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      & .amount {
+      }
+      &_name {
+        margin: 0;
+      }
+      &_ico {
+        height: 98px;
+        width: 98px;
+      }
+    }
+  }
+  @include mobile {
+    &__items {
+      & .item {
+        width: 50%;
+      }
+    }
+  }
+}
