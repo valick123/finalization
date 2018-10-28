@@ -10,7 +10,7 @@ const spritesmith = require("gulp.spritesmith");
 
 gulp.task("scss", function() {
   return gulp
-    .src("develop/scss/main.scss")
+    .src("src/scss/main.scss")
     .pipe(sourceMap.init())
     .pipe(scss())
     .pipe(
@@ -19,36 +19,69 @@ gulp.task("scss", function() {
         cascade: 1
       })
     )
-    .pipe(gulp.dest("public/css"))
+    .pipe(gulp.dest("./.tmp/css"))
     .pipe(sourceMap.write());
 });
+gulp.task("js", function() {
+  gulp
+    .src("./.tmp/js/**/*.js")
+    .pipe(
+      babel({
+        presets: ["@babel/env"]
+      })
+    )
+    .pipe(gulp.dest("./.tmp/js"));
+});
 gulp.task("sprite", function() {
-  var spriteData = gulp.src("develop/img/*.png").pipe(
+  let spriteData = gulp.src("src/img/*.*").pipe(
     spritesmith({
       imgName: "sprite.png",
-      cssName: "sprite.scss"
+      cssName: "sprite.scss",
+      cssFormat: "scss"
     })
   );
-  return spriteData.pipe(gulp.dest("develop/scss/sprites"));
+
+  return (
+    spriteData.img.pipe(gulp.dest("./.tmp/img/sprite")),
+    spriteData.css.pipe(gulp.dest("src/scss/config"))
+  );
 });
 gulp.task("clean", function() {
-  return del("public");
+  return del("./.tmp");
+});
+gulp.task("copy", function() {
+  return gulp.src("./src/**/*.*").pipe(gulp.dest("./.tmp"));
 });
 gulp.task("public", function() {
   return gulp
-    .src("develop/**/*.*", { since: gulp.lastRun("public") })
+    .src("./.tmp/**/*.*", { since: gulp.lastRun("public") })
 
-    .pipe(gulp.dest("public"));
+    .pipe(gulp.dest("app"));
 });
 gulp.task("server", function() {
   browserSync.init({
-    server: "public"
+    server: "./.tmp"
   });
-  browserSync.watch("public/**/*.*").on("change", browserSync.reload);
+  browserSync.watch("./.tmp/**/*.*").on("change", browserSync.reload);
 });
-gulp.task("build", gulp.series("clean", gulp.parallel("scss", "public")));
+
 gulp.task("watch", function() {
-  gulp.watch("develop/scss/**/*.*", gulp.series("scss"));
-  gulp.watch("develop/**/*.*", gulp.series("public"));
+  gulp.watch("src/scss/**/*.*", gulp.series("scss"));
+  gulp.watch("src/**/*.*", gulp.series("copy"));
 });
-gulp.task("dev", gulp.series("build", gulp.parallel("watch", "server")));
+gulp.task(
+  "dev",
+  gulp.series(
+    gulp.parallel("clean"),
+    gulp.parallel("scss", "copy", "sprite"),
+    gulp.parallel("watch", "server")
+  )
+);
+gulp.task(
+  "build",
+  gulp.series(
+    gulp.parallel("clean"),
+    gulp.parallel("scss", "copy", "sprite"),
+    gulp.parallel("public")
+  )
+);
