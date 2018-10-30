@@ -7,6 +7,7 @@ const autoPrefixer = require("gulp-autoprefixer");
 const del = require("del");
 const browserSync = require("browser-sync").create();
 const spritesmith = require("gulp.spritesmith");
+const babel = require("gulp-babel");
 
 gulp.task("scss", function() {
   return gulp
@@ -23,7 +24,7 @@ gulp.task("scss", function() {
     .pipe(sourceMap.write());
 });
 gulp.task("js", function() {
-  gulp
+  return gulp
     .src("./.tmp/js/**/*.js")
     .pipe(
       babel({
@@ -50,7 +51,9 @@ gulp.task("clean", function() {
   return del("./.tmp");
 });
 gulp.task("copy", function() {
-  return gulp.src("./src/**/*.*").pipe(gulp.dest("./.tmp"));
+  return gulp
+    .src("./src/**/*.*", { since: gulp.lastRun("copy") })
+    .pipe(gulp.dest("./.tmp"));
 });
 gulp.task("public", function() {
   return gulp
@@ -73,7 +76,7 @@ gulp.task(
   "dev",
   gulp.series(
     gulp.parallel("clean"),
-    gulp.parallel("scss", "copy", "sprite"),
+    gulp.parallel("scss", "copy", "sprite", "js"),
     gulp.parallel("watch", "server")
   )
 );
@@ -81,7 +84,7 @@ gulp.task(
   "build",
   gulp.series(
     gulp.parallel("clean"),
-    gulp.parallel("scss", "copy", "sprite"),
+    gulp.parallel("scss", "copy", "sprite", "js"),
     gulp.parallel("public")
   )
 );

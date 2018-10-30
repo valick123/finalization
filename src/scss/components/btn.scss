@@ -19,3 +19,23 @@
     border: none;
   }
 }
+.calc-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  font-size: 30px;
+  border-radius: 5px;
+  &:hover {
+    background-color: darken($primary-color, 20);
+  }
+}
+.calc-btn-secondary {
+  border: none;
+  background-color: rgba(255, 238, 0, 0.753);
+  padding: 15px 0;
+  width: 100%;
+  font-size: 15px;
+  &:hover {
+    background-color: darken(rgba(255, 238, 0, 0.753), 20);
+  }
+}
