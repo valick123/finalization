@@ -19,7 +19,7 @@
     border: none;
   }
 }
-.calc-btn {
+.calc-widget-btn {
   width: 50px;
   height: 50px;
   border: none;
@@ -29,7 +29,7 @@
     background-color: darken($primary-color, 20);
   }
 }
-.calc-btn-secondary {
+.calc-widget-btn-secondary {
   border: none;
   background-color: rgba(255, 238, 0, 0.753);
   padding: 15px 0;

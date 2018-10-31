@@ -25,7 +25,7 @@ gulp.task("scss", function() {
 });
 gulp.task("js", function() {
   return gulp
-    .src("./.tmp/js/**/*.js")
+    .src("src/js/**/*.js")
     .pipe(
       babel({
         presets: ["@babel/env"]
@@ -71,6 +71,8 @@ gulp.task("server", function() {
 gulp.task("watch", function() {
   gulp.watch("src/scss/**/*.*", gulp.series("scss"));
   gulp.watch("src/**/*.*", gulp.series("copy"));
+  gulp.watch("src/js/*.js", gulp.series("js"));
+  gulp.watch("src/img/*.*", gulp.series("sprite"));
 });
 gulp.task(
   "dev",
