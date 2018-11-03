@@ -163,24 +163,19 @@
                 <div class="calc__inner">
                     <div class="calc-widget">
                         <h1>Опишите свою квартиру</h1>
-                        <form action="" class="calc-widget__form">
-                            <div class="form-row">
-                                <input type="button" class="calc-widget-btn prevroom" value="-">
-                                <span class="calc-widget-amount roomamount" data-room-cost="15,25,35,45,55" data-room-amount="1">1
-                                    комната
-                                </span>
-                                <input type="button" class="calc-widget-btn nextroom" value="+">
+                        <form action="">
+                            <div class="rooms" data-room-defult='1' data-room-price='15,25,35,45,55,65'>
+                                <input type="button" class="calc-widget-btn prev" value="-">
+                                <span class="calc-text" id="roomText">1 комната</span>
+                                <input type="button" class="calc-widget-btn next" value="+">
                             </div>
-                            <div class="form-row">
-                                <input type="button" class="calc-widget-btn prevbathroom" value="-">
-                                <span class="calc-widget-amount bathroomamount" data-bathroom-cost="5,15,25,35,45" data-bathroom-amount="1">1
-                                    санузел
-                                </span>
-                                <input type="button" class="calc-widget-btn nextbathroom" value="+">
+                            <div class="bathrooms" data-bathroom-defult='1' data-bathroom-price='20,30,40,50,60,70'>
+                                <input type="button" class="calc-widget-btn prev" value="-">
+                                <span class="calc-text" id="bathRoomText">1 санузел</span>
+                                <input type="button" class="calc-widget-btn next" value="+">
                             </div>
-                            <button class="calc-widget-btn calc-widget-btn-secondary calc-submitbtn">Заказать за <span class="coast">42.9</span>руб</button>
+                            <button class="calc-widget-btn calc-widget-btn-secondary result">Закакзать за 35.00 руб</button>
                         </form>
-                        <p>Тщательная уборка всаей квартиры,кухни,туалета и ванной комнаты</p>
                     </div>
                 </div>
             </div>
